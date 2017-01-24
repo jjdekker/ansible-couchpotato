@@ -17,15 +17,15 @@
       system: true
       state: present
 
+    - name: Ensure CouchPotato home directory exists
+      file:
+        dest: "{{ couchpotato_user_home }}"
+        owner: "{{ couchpotato_user_name }}"
+        group: "{{ couchpotato_group_name }}"
+        state: directory
+
   - name: Ensure CouchPotato dependencies are installed
     package: name={{ couchpotato_dependencies }} state=present
-
-  - name: Ensure CouchPotato library directory exists
-    file:
-      dest: "{{ couchpotato_library_path }}"
-      owner: "{{ couchpotato_user_name }}"
-      group: "{{ couchpotato_group_name }}"
-      state: directory
 
   - name: Ensure CouchPotato config directory exists
     file:
@@ -38,7 +38,7 @@
   - name: Fetch CouchPotato source code
     git:
       repo: "{{ couchpotato_clone_uri }}"
-      dest: "{{ couchpotato_user_home }}/src"
+      dest: "{{ couchpotato_user_home }}"
       update: false
       accept_hostkey: true
     become: true
