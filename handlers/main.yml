@@ -1,6 +1,3 @@
 ---
 - name: Restart CouchPotato service
-  service: name=couchpotato state=restarted
-
-- name: Reload CouchPotato service config
-  command: "{{ couchpotato_service_reload_command }}"
+  systemd: name=couchpotato state=restarted enabled=yes daemon_reload=yes

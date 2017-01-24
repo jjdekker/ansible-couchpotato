@@ -3,7 +3,6 @@ couchpotato_user_name: couchpotato
 couchpotato_group_name: couchpotato
 couchpotato_user_home: /opt/CouchPotato
 couchpotato_clone_uri: 'git://github.com/CouchPotato/CouchPotatoServer.git'
-couchpotato_service_reload_command: systemctl daemon-reload
 couchpotato_service_file:
   src: couchpotato.service.j2
   dest: /etc/systemd/system/couchpotato.service

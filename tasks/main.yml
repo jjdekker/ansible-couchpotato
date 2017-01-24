@@ -16,28 +16,20 @@
     system: true
     state: present
 
-  - name: Ensure CouchPotato home directory exists
-    file:
-      dest: "{{ couchpotato_user_home }}"
-      owner: "{{ couchpotato_user_name }}"
-      group: "{{ couchpotato_group_name }}"
-      state: directory
+- name: Ensure CouchPotato home directory exists
+  file:
+    dest: "{{ couchpotato_user_home }}"
+    owner: "{{ couchpotato_user_name }}"
+    group: "{{ couchpotato_group_name }}"
+    state: directory
 
 - name: Ensure CouchPotato dependencies are installed
   package: name={{ couchpotato_dependencies }} state=present
 
-- name: Ensure CouchPotato config directory exists
-  file:
-    dest: "{{ couchpotato_conf_path }}"
-    owner: "{{ couchpotato_user_name }}"
-    group: "{{ couchpotato_group_name }}"
-    recurse: true
-    state: directory
-
 - name: Fetch CouchPotato source code
   git:
     repo: "{{ couchpotato_clone_uri }}"
-    dest: "{{ couchpotato_user_home }}"
+    dest: "{{ couchpotato_user_home }}/src"
     update: false
     accept_hostkey: true
   become: true
@@ -49,9 +41,8 @@
     dest: "{{ couchpotato_service_file.dest }}"
     owner: root
     group: root
-    mode: 0600
+    mode: 0664
   notify:
-    - Reload CouchPotato service config
     - Restart CouchPotato service
 
 - meta: flush_handlers

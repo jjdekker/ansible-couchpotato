@@ -31,7 +31,6 @@ The current version includes the following variables:
 | `couchpotato_service_file` | | |
 | `    src`                  | couchpotato.service.j2 | The source template for the CouchPotato service manifest |
 | `    dest`                 | /etc/systemd/system/couchpotato.service | The destination to deploy the CouchPotato service manifest to |
-| `couchpotato_service_reload_command` | `systemctl daemon-reload` | The command to use when reloading the CouchPotato service configuration |
 
 ### CentOS 7
 | Name               | Default Value | Description                  |
