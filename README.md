@@ -22,8 +22,8 @@ The current version includes the following variables:
 |--------------------|---------------|------------------------------|
 | `couchpotato_user_name`  | couchpotato | The user to run the CouchPotato service |
 | `couchpotato_group_name` | couchpotato | The primary group for `couchpotato_user_name` to run the CouchPotato service |
-| `couchpotato_user_home` | /var/lib/{{ couchpotato_user_name }} | home directory for the CouchPotato service user |
-| `couchpotato_clone_uri` | 'git://github.com/RuudBurger/CouchPotatoServer' | The remote Git repo to clone CouchPotato from |
+| `couchpotato_user_home` | /opt/CouchPotato | home directory for the CouchPotato service user |
+| `couchpotato_clone_uri` | 'git://github.com/CouchPotato/CouchPotatoServer' | The remote Git repo to clone CouchPotato from |
 | `couchpotato_dependencies` | - git-core | A list of dependency packages for CouchPotato |
 |                            | - python-lxml | |
 |                            | - python-openssl | |

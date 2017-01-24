@@ -1,7 +1,7 @@
 ---
 couchpotato_user_name: couchpotato
 couchpotato_group_name: couchpotato
-couchpotato_user_home: /var/lib/{{ couchpotato_user_name }}
+couchpotato_user_home: /opt/CouchPotato
 couchpotato_clone_uri: 'git://github.com/CouchPotato/CouchPotatoServer.git'
 couchpotato_service_reload_command: systemctl daemon-reload
 couchpotato_service_file:
